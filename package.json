@@ -1,0 +1,18 @@
+{
+  "name": "saeProject",
+  "version": "1.0.0",
+  "description": "Ein Projekt zur Darstellung von Fehlerarten in der Programmierung",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1 -o index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.0.0"
+  },
+  "dependencies": {
+    "dotnet": "^1.1.4",
+    "git": "^0.1.5"
+  }
+}

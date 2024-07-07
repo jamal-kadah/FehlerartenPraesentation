@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fehlerarten in der Programmierung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .error-example {
+            background-color: #f9ebea;
+            padding: 10px;
+            border-left: 3px solid #e74c3c;
+            margin: 20px 0;
+        }
+
+        .solution {
+            background-color: #e8f8f5;
+            padding: 10px;
+            border-left: 3px solid #2ecc71;
+            margin: 20px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Fehlerarten in der Programmierung</h1>
+
+    <h2>Syntaxfehler</h2>
+    <p>Syntaxfehler treten auf, wenn der Programmcode nicht den Regeln der Programmiersprache entspricht.</p>
+    <div class="error-example">
+        <h3>Beispielcode:</h3>
+        <pre><code>print("Hallo Welt</code></pre>
+        <h3>Fehlermeldung in Visual Studio:</h3>
+        <img src="https://i.stack.imgur.com/2zqqC.png" alt="Syntaxfehler Beispiel">
+    </div>
+    <p><strong>Erklärung:</strong> In diesem Beispiel fehlt das schließende Anführungszeichen.</p>
+    <div class="solution">
+        <h3>Behebung:</h3>
+        <pre><code>print("Hallo Welt")</code></pre>
+    </div>
+
+    <h2>Logikfehler</h2>
+    <p>Logikfehler sind Fehler, bei denen der Code zwar ausgeführt wird, aber nicht das gewünschte Ergebnis liefert.</p>
+    <div class="error-example">
+        <h3>Beispielcode:</h3>
+        <pre><code>zahl = 10
+if zahl > 20:
+    print("Zahl ist größer als 20")
+else:
+    print("Zahl ist kleiner oder gleich 20")</code></pre>
+        <h3>Ausgabe in Visual Studio:</h3>
+        <img src="https://i.imgur.com/rxY3sX6.png" alt="Logikfehler Beispiel">
+    </div>
+    <p><strong>Erklärung:</strong> In diesem Beispiel ist die Bedingung falsch gesetzt. Die Zahl 10 ist nicht größer als
+        20.</p>
+    <div class="solution">
+        <h3>Behebung:</h3>
+        <pre><code>zahl = 10
+if zahl < 20:
+    print("Zahl ist kleiner als 20")
+else:
+    print("Zahl ist größer oder gleich 20")</code></pre>
+    </div>
+
+    <h2>Laufzeitfehler</h2>
+    <p>Laufzeitfehler treten während der Programmausführung auf und führen oft zu einem Absturz.</p>
+    <div class="error-example">
+        <h3>Beispielcode:</h3>
+        <pre><code>zahl = 10
+ergebnis = zahl / 0</code></pre>
+        <h3>Fehlermeldung in Visual Studio:</h3>
+        <img src="https://i.imgur.com/ZG0H4w9.png" alt="Laufzeitfehler Beispiel">
+    </div>
+    <p><strong>Erklärung:</strong> In diesem Beispiel führt die Division durch Null zu einem Fehler.</p>
+    <div class="solution">
+        <h3>Behebung:</h3>
+        <pre><code>zahl = 10
+if zahl != 0:
+    ergebnis = zahl / zahl
+else:
+    ergebnis = 0</code></pre>
+    </div>
+
+    <h2>Tipps zur Fehlervermeidung</h2>
+    <ul>
+        <li>Schreibe klaren und gut strukturierten Code.</li>
+        <li>Verwende Kommentare zur Erklärung komplexer Codeabschnitte.</li>
+        <li>Nutze Debugging-Tools, um Fehler frühzeitig zu erkennen.</li>
+        <li>Schreibe Tests, um sicherzustellen, dass dein Code wie erwartet funktioniert.</li>
+        <li>Refaktorisiere regelmäßig deinen Code, um ihn sauber und verständlich zu halten.</li>
+    </ul>
+
+    <h2>Quellenangaben</h2>
+    <ul>
+        <li>Python Documentation: <a href="https://docs.python.org/3/" target="_blank">https://docs.python.org/3/</a>
+        </li>
+        <li>Visual Studio Documentation: <a href="https://docs.microsoft.com/en-us/visualstudio/"
+                target="_blank">https://docs.microsoft.com/en-us/visualstudio/</a></li>
+    </ul>
+</body>
+
+</html>
