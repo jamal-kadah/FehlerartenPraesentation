@@ -10,7 +10,8 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             line-height: 1.6;
-            text-align: center;
+            text-align: left; /* Text linksbündig ausrichten */
+            background-color: #f2f2f2; /* Hintergrundfarbe hinzufügen */
         }
 
         h1,
@@ -20,10 +21,12 @@
         }
 
         .button-container {
-            margin-top: 40px;
+            margin-top: 20px;
+            margin-bottom: 40px; /* Abstand am Ende des Containers erhöhen */
+            text-align: center;
         }
 
-        .error-button {
+        .error-button, .tipps-button, .quellen-button {
             display: inline-block;
             padding: 10px 20px;
             margin: 10px;
@@ -35,11 +38,25 @@
             transition: background-color 0.3s;
         }
 
-        .error-button:hover {
+        .button-container .error-button:hover, .tipps-button:hover, .quellen-button:hover {
             background-color: #2980b9;
         }
 
-        .error-example {
+        .error-section, .tipps-section, .quellen-section {
+            display: none; /* Standardmäßig verstecken */
+            text-align: left; /* Ausrichtung für Fehlerbeispiele und Lösungen */
+            margin-bottom: 20px; /* Abstand zwischen den Abschnitten erhöhen */
+            background-color: #fff; /* Hintergrundfarbe für die Abschnitte hinzufügen */
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Schatten hinzufügen */
+            border-radius: 5px; /* Abgerundete Ecken */
+        }
+
+        .error-section.active, .tipps-section.active, .quellen-section.active {
+            display: block; /* Anzeigen, wenn als aktiv markiert */
+        }
+
+        .error-example, .solution, .tipps-list, .quellen-list {
             background-color: #f9ebea;
             padding: 10px;
             border-left: 3px solid #e74c3c;
@@ -49,34 +66,67 @@
 
         .solution {
             background-color: #e8f8f5;
+            border-left-color: #2ecc71;
+        }
+
+        pre {
+            background-color: #ecf0f1;
             padding: 10px;
-            border-left: 3px solid #2ecc71;
-            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Fehlerarten in der Programmierung</h1>
+    <h1 style="text-align: center;">Fehlerarten in der Programmierung</h1>
 
     <div class="button-container">
-        <a href="#syntaxfehler" class="error-button">Syntaxfehler</a>
-        <a href="#logikfehler" class="error-button">Logikfehler</a>
-        <a href="#laufzeitfehler" class="error-button">Laufzeitfehler</a>
+        <button onclick="showSection('syntaxfehler')" class="error-button">Syntaxfehler</button>
+        <button onclick="showSection('logikfehler')" class="error-button">Logikfehler</button>
+        <button onclick="showSection('laufzeitfehler')" class="error-button">Laufzeitfehler</button>
+        <button onclick="showSection('tipps')" class="tipps-button">Tipps zur Fehlervermeidung</button>
+        <button onclick="showSection('quellen')" class="quellen-button">Quellenangaben</button>
     </div>
 
-    <div id="syntaxfehler">
+    <div id="syntaxfehler" class="error-section">
         <h2>Syntaxfehler</h2>
         <p>Entstehen durch Verstöße gegen die Syntaxregeln einer Programmiersprache. Vom Compiler vor der Ausführung erkannt.</p>
         <div class="error-example">
+            <h3>Erklärung:</h3>
+            <p>Beim Programmieren können Syntaxfehler auftreten, wenn die Code-Syntaxregeln nicht eingehalten werden. Diese Fehler werden vom Compiler vor der Ausführung des Programms erkannt und müssen behoben werden, damit das Programm kompiliert werden kann.</p>
             <h3>Beispielcode:</h3>
             <pre><code>Console.WriteLine("Hallo Welt);</code></pre>
             <h3>Fehlermeldung in Visual Studio:</h3>
-            <img  src="https://previews.dropbox.com/p/thumb/ACUTEBT-TgZl__vD7lhQhsoDXkQQNO5yxf_a_Fsu2Uikhc_Yco_WYBLmWuxNVgqdC2T56ib8_Ai0cIab2HyDuh_KJaqy1DByGdOZ4fiGleEoHM9n0Qj8zxBFA78IwrTr-SZszgRjBM7FAyMYDe94bQh_jcy111-a0ztU_eJvjHEuvH2USyDC2V8SrwYGNMJRcU3lCGA_vRdsL-FUx_q5ffgNKVSDkxoX4QEqRGcLmocIHoP52Q9pe1TmZXZcbHgQdD-v9ZY48GsS6NyPjcYhlPdIrso7dRPTn7ecZu4cACfE9PVSCE4FN4RXvngwUQ3zzsmFXmUD9Tw-z1wtfiXYaoIV/p.jpeg" alt="Syntaxfehler Beispiel">
-            <p>Syntaxfehler Beispiel</p>
-            <h3>Erklärung:</h3>
-            <p>In diesem Beispiel fehlt das schließende Anführungszeichen.</p>
+            <img src="https://previews.dropbox.com/p/thumb/ACUTEBT-TgZl__vD7lhQhsoDXkQQNO5yxf_a_Fsu2Uikhc_Yco_WYBLmWuxNVgqdC2T56ib8_Ai0cIab2HyDuh_KJaqy1DByGdOZ4fiGleEoHM9n0Qj8zxBFA78IwrTr-SZszgRjBM7FAyMYDe94bQh_jcy111-a0ztU_eJvjHEuvH2USyDC2V8SrwYGNMJRcU3lCGA_vRdsL-FUx_q5ffgNKVSDkxoX4QEqRGcLmocIHoP52Q9pe1TmZXZcbHgQdD-v9ZY48GsS6NyPjcYhlPdIrso7dRPTn7ecZu4cACfE9PVSCE4FN4RXvngwUQ3zzsmFXmUD9Tw-z1wtfiXYaoIV/p.jpeg" alt="Syntaxfehler Beispiel">
         </div>
         <div class="solution">
             <h3>Behebung:</h3>
@@ -85,10 +135,12 @@
         <a href="#top">Zum Anfang</a>
     </div>
 
-    <div id="logikfehler">
+    <div id="logikfehler" class="error-section">
         <h2>Logikfehler</h2>
         <p>Das Programm läuft, liefert aber nicht die erwarteten Ergebnisse. Oft schwer zu erkennen und zu beheben.</p>
         <div class="error-example">
+            <h3>Erklärung:</h3>
+            <p>Logikfehler treten auf, wenn das Programm nicht die erwarteten Ergebnisse liefert, obwohl es korrekt kompiliert und ausgeführt wird. Diese Fehler sind oft subtil und erfordern gründliches Debugging, um identifiziert und behoben zu werden.</p>
             <h3>Beispielcode:</h3>
             <pre><code>int faktor = 5;
 int ergebnis = 1;
@@ -98,9 +150,7 @@ for (int i = 1; i <= faktor; i++)
 }
 Console.WriteLine("Faktor: " + ergebnis);</code></pre>
             <h3>Fehlermeldung in Visual Studio:</h3>
-            <p>Logikfehler Beispiel</p>
-            <h3>Erklärung:</h3>
-            <p>In diesem Beispiel wird die Addition anstelle der Multiplikation für die Berechnung des Faktors verwendet.</p>
+            <img src="https://previews.dropbox.com/p/thumb/ACUGFb2H2wG_W7HnGvl8Pcyz0PGJBSJnhz6TSMSFsjycEvTLoBdat5wuuEsI1JLSTngPiFFVnKw5TlrgiHagf_g-PtrsyIpibEr1l2nykdP3_r4r8ePms5n2cafZgQYo-d0R0-K7y-HgLw8CsqyD5Xzr2jzIlVn0MFgwpqKFbndpjCXJVxLJw9gjA0WUdRUGHnHo0IWn-hZ_Xrsl1P4Wo6aeNWTyAd7JlA5j2p2s0HZTFKN0DMQC8cXmPLN9ftLBXRMKBMAp9Fsy5qEo6EyiU1p2z-QwvxKhQcHsVoDjFRxFfum2YVK4RpoXJPae5eMKNZAEut4ZpkUZKJV78OWlKqKf/p.jpeg" alt="Logikfehler Beispiel">
         </div>
         <div class="solution">
             <h3>Behebung:</h3>
@@ -110,22 +160,22 @@ for (int i = 1; i <= faktor; i++)
 {
     ergebnis *= i;
 }
-Console.WriteLine("Faktor: " + ergebnis);</code></pre>
+Console.WriteLine("Faktor: " + ergebnis);</code> <img src="https://previews.dropbox.com/p/thumb/ACWexfR5Gx_IxIGI2keIpzILaES4aFVB0SRwzU6eDM5D7nuHPns3fzp6QZyiJ0u6dZZ1ngX2jcAj7f0-NdPzmWIgxjYUc4hBiJr-TdN3FpwfGoXEPbtlgxz5bOD9OLB42R30TlNKkWhakaS4-clQdmECLmU4uLMWL0zuBwZF6Ych4zJIHRUA4S5Bs_DrRj0xPULDDNorNQNtgZN00xcE4kiIarWCLa0xG2t-O1T5Ph6n4k2JGO1vWRjc_8eoEuZuAjbR5BcGvoDzTl8SOj4sts5J8OhFjJzoGaqiLJZ1gcfmUkSagZQZvDPgFFMbiPmYbN1ZbZjLmpJxyRKaptKJsud0/p.jpeg"></pre>
         </div>
         <a href="#top">Zum Anfang</a>
     </div>
 
-    <div id="laufzeitfehler">
+    <div id="laufzeitfehler" class="error-section">
         <h2>Laufzeitfehler</h2>
         <p>Tritt während der Programmausführung auf, oft durch unerwartete Eingaben oder Bedingungen. Kann zum Programmabsturz führen.</p>
         <div class="error-example">
+            <h3>Erklärung:</h3>
+            <p>Laufzeitfehler treten während der Ausführung des Programms auf und werden nicht vom Compiler erkannt. Sie können durch unerwartete Bedingungen wie Division durch Null verursacht werden und führen oft zu Programmabstürzen oder unerwartetem Verhalten.</p>
             <h3>Beispielcode:</h3>
             <pre><code>int zahl = 10;
 int ergebnis = zahl / 0;</code></pre>
             <h3>Fehlermeldung in Visual Studio:</h3>
-            <p>Laufzeitfehler Beispiel</p>
-            <h3>Erklärung:</h3>
-            <p>In diesem Beispiel führt die Division durch Null zu einem Fehler.</p>
+            <img src="https://previews.dropbox.com/p/thumb/ACWycYV_EI8INwiTGuKTtgjYyVhTEq59GpWN_D5Jaz7MMxYjl1pOHCa8Ak2j41b9i5XJtbac6a19yaX8Bo4BI23c9Lh7RHip9W6nk6poJfanqjVtodxdCbSLNiTbpqY4q1dDBvEUYuZ_aAiCqruUIsJfAzYSlL-rLvWql07SsJAxGDjxu7qo0muHCjwYjjJwEOBfU4jlsP4xCHpihV7P4fr3YxLCQgDaZ_5FEtnxIwmotzz81rgJ6eVBEb39qtEGLKu-CMeu_8cXbGY1bP713lKQSQ70XUKQ4Z1KF7Wwhsiwx0EE0ThG4XDHHDv8jDB6Wcjyi-a9EENmUvMl69wuoA--/p.jpeg" alt="Laufzeitfehler Beispiel">
         </div>
         <div class="solution">
             <h3>Behebung:</h3>
@@ -137,26 +187,50 @@ if (zahl != 0)
 else
 {
     int ergebnis = 0;
-}</code></pre>
+}</code>
+</pre>
         </div>
         <a href="#top">Zum Anfang</a>
     </div>
 
-    <a name="top"></a>
-    <h2>Tipps zur Fehlervermeidung</h2>
-    <ul>
-        <li>Schreibe klaren und gut strukturierten Code.</li>
-        <li>Verwende Kommentare zur Erklärung komplexer Codeabschnitte.</li>
-        <li>Nutze Debugging-Tools, um Fehler frühzeitig zu erkennen.</li>
-        <li>Schreibe Tests, um sicherzustellen, dass dein Code wie erwartet funktioniert.</li>
-        <li>Refaktorisiere regelmäßig deinen Code, um ihn sauber und verständlich zu halten.</li>
-    </ul>
+    <div id="tipps" class="tipps-section">
+        <h2>Tipps zur Fehlervermeidung</h2>
+        <ul class="tipps-list">
+            <li>Schreibe klaren und gut strukturierten Code.</li>
+            <li>Verwende Kommentare zur Erklärung komplexer Codeabschnitte.</li>
+            <li>Nutze Debugging-Tools, um Fehler frühzeitig zu erkennen.</li>
+            <li>Schreibe Tests, um sicherzustellen, dass dein Code wie erwartet funktioniert.</li>
+            <li>Refaktorisiere regelmäßig deinen Code, um ihn sauber und verständlich zu halten.</li>
+        </ul>
+    
+        <a href="#top">Zum Anfang</a>
+    </div>
 
-    <h2>Quellenangaben</h2>
-    <ul>
-        <li>C# Documentation: <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">https://docs.microsoft.com/en-us/dotnet/csharp/</a></li>
-        <li>Visual Studio Documentation: <a href="https://docs.microsoft.com/en-us/visualstudio/" target="_blank">https://docs.microsoft.com/en-us/visualstudio/</a></li>
-    </ul>
+    <div id="quellen" class="quellen-section">
+        <h2>Quellenangaben</h2>
+        <ul class="quellen-list">
+            <li>C# Documentation: <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">https://docs.microsoft.com/en-us/dotnet/csharp/</a></li>
+            <li>Visual Studio Documentation: <a href="https://docs.microsoft.com/en-us/visualstudio/" target="_blank">https://docs.microsoft.com/en-us/visualstudio/</a></li>
+        </ul>
+        <a href="#top">Zum Anfang</a>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Alle Abschnitte verbergen
+            var sections = document.querySelectorAll('.error-section, .tipps-section, .quellen-section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            // Den ausgewählten Abschnitt anzeigen
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+    </script>
+
+    <a name="top"></a>
 
 </body>
 
