@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             line-height: 1.6;
+            text-align: center;
         }
 
         h1,
@@ -18,92 +19,130 @@
             color: #2c3e50;
         }
 
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 4px;
+        .button-container {
+            margin-top: 40px;
+        }
+
+        .error-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .error-button:hover {
+            background-color: #2980b9;
         }
 
         .error-example {
             background-color: #f9ebea;
             padding: 10px;
             border-left: 3px solid #e74c3c;
-            margin: 20px 0;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .solution {
             background-color: #e8f8f5;
             padding: 10px;
             border-left: 3px solid #2ecc71;
-            margin: 20px 0;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 
 <body>
+
     <h1>Fehlerarten in der Programmierung</h1>
 
-    <h2>Syntaxfehler</h2>
-    <p>Syntaxfehler treten auf, wenn der Programmcode nicht den Regeln der Programmiersprache entspricht.</p>
-    <div class="error-example">
-        <h3>Beispielcode:</h3>
-        <pre><code>print("Hallo Welt</code></pre>
-        <h3>Fehlermeldung in Visual Studio:</h3>
-        <img src="https://i.stack.imgur.com/2zqqC.png" alt="Syntaxfehler Beispiel">
-    </div>
-    <p><strong>Erklärung:</strong> In diesem Beispiel fehlt das schließende Anführungszeichen.</p>
-    <div class="solution">
-        <h3>Behebung:</h3>
-        <pre><code>print("Hallo Welt")</code></pre>
+    <div class="button-container">
+        <a href="#syntaxfehler" class="error-button">Syntaxfehler</a>
+        <a href="#logikfehler" class="error-button">Logikfehler</a>
+        <a href="#laufzeitfehler" class="error-button">Laufzeitfehler</a>
     </div>
 
-    <h2>Logikfehler</h2>
-    <p>Logikfehler sind Fehler, bei denen der Code zwar ausgeführt wird, aber nicht das gewünschte Ergebnis liefert.</p>
-    <div class="error-example">
-        <h3>Beispielcode:</h3>
-        <pre><code>zahl = 10
-if zahl > 20:
-    print("Zahl ist größer als 20")
-else:
-    print("Zahl ist kleiner oder gleich 20")</code></pre>
-        <h3>Ausgabe in Visual Studio:</h3>
-        <img src="https://i.imgur.com/rxY3sX6.png" alt="Logikfehler Beispiel">
-    </div>
-    <p><strong>Erklärung:</strong> In diesem Beispiel ist die Bedingung falsch gesetzt. Die Zahl 10 ist nicht größer als
-        20.</p>
-    <div class="solution">
-        <h3>Behebung:</h3>
-        <pre><code>zahl = 10
-if zahl < 20:
-    print("Zahl ist kleiner als 20")
-else:
-    print("Zahl ist größer oder gleich 20")</code></pre>
+    <div id="syntaxfehler">
+        <h2>Syntaxfehler</h2>
+        <p>Entstehen durch Verstöße gegen die Syntaxregeln einer Programmiersprache. Vom Compiler vor der Ausführung erkannt.</p>
+        <div class="error-example">
+            <h3>Beispielcode:</h3>
+            <pre><code>Console.WriteLine("Hallo Welt);</code></pre>
+            <h3>Fehlermeldung in Visual Studio:</h3>
+            <img  src="https://previews.dropbox.com/p/thumb/ACUTEBT-TgZl__vD7lhQhsoDXkQQNO5yxf_a_Fsu2Uikhc_Yco_WYBLmWuxNVgqdC2T56ib8_Ai0cIab2HyDuh_KJaqy1DByGdOZ4fiGleEoHM9n0Qj8zxBFA78IwrTr-SZszgRjBM7FAyMYDe94bQh_jcy111-a0ztU_eJvjHEuvH2USyDC2V8SrwYGNMJRcU3lCGA_vRdsL-FUx_q5ffgNKVSDkxoX4QEqRGcLmocIHoP52Q9pe1TmZXZcbHgQdD-v9ZY48GsS6NyPjcYhlPdIrso7dRPTn7ecZu4cACfE9PVSCE4FN4RXvngwUQ3zzsmFXmUD9Tw-z1wtfiXYaoIV/p.jpeg" alt="Syntaxfehler Beispiel">
+            <p>Syntaxfehler Beispiel</p>
+            <h3>Erklärung:</h3>
+            <p>In diesem Beispiel fehlt das schließende Anführungszeichen.</p>
+        </div>
+        <div class="solution">
+            <h3>Behebung:</h3>
+            <pre><code>Console.WriteLine("Hallo Welt");</code></pre>
+        </div>
+        <a href="#top">Zum Anfang</a>
     </div>
 
-    <h2>Laufzeitfehler</h2>
-    <p>Laufzeitfehler treten während der Programmausführung auf und führen oft zu einem Absturz.</p>
-    <div class="error-example">
-        <h3>Beispielcode:</h3>
-        <pre><code>zahl = 10
-ergebnis = zahl / 0</code></pre>
-        <h3>Fehlermeldung in Visual Studio:</h3>
-        <img src="https://i.imgur.com/ZG0H4w9.png" alt="Laufzeitfehler Beispiel">
-    </div>
-    <p><strong>Erklärung:</strong> In diesem Beispiel führt die Division durch Null zu einem Fehler.</p>
-    <div class="solution">
-        <h3>Behebung:</h3>
-        <pre><code>zahl = 10
-if zahl != 0:
-    ergebnis = zahl / zahl
-else:
-    ergebnis = 0</code></pre>
+    <div id="logikfehler">
+        <h2>Logikfehler</h2>
+        <p>Das Programm läuft, liefert aber nicht die erwarteten Ergebnisse. Oft schwer zu erkennen und zu beheben.</p>
+        <div class="error-example">
+            <h3>Beispielcode:</h3>
+            <pre><code>int faktor = 5;
+int ergebnis = 1;
+for (int i = 1; i <= faktor; i++)
+{
+    ergebnis += i;
+}
+Console.WriteLine("Faktor: " + ergebnis);</code></pre>
+            <h3>Fehlermeldung in Visual Studio:</h3>
+            <p>Logikfehler Beispiel</p>
+            <h3>Erklärung:</h3>
+            <p>In diesem Beispiel wird die Addition anstelle der Multiplikation für die Berechnung des Faktors verwendet.</p>
+        </div>
+        <div class="solution">
+            <h3>Behebung:</h3>
+            <pre><code>int faktor = 5;
+int ergebnis = 1;
+for (int i = 1; i <= faktor; i++)
+{
+    ergebnis *= i;
+}
+Console.WriteLine("Faktor: " + ergebnis);</code></pre>
+        </div>
+        <a href="#top">Zum Anfang</a>
     </div>
 
+    <div id="laufzeitfehler">
+        <h2>Laufzeitfehler</h2>
+        <p>Tritt während der Programmausführung auf, oft durch unerwartete Eingaben oder Bedingungen. Kann zum Programmabsturz führen.</p>
+        <div class="error-example">
+            <h3>Beispielcode:</h3>
+            <pre><code>int zahl = 10;
+int ergebnis = zahl / 0;</code></pre>
+            <h3>Fehlermeldung in Visual Studio:</h3>
+            <p>Laufzeitfehler Beispiel</p>
+            <h3>Erklärung:</h3>
+            <p>In diesem Beispiel führt die Division durch Null zu einem Fehler.</p>
+        </div>
+        <div class="solution">
+            <h3>Behebung:</h3>
+            <pre><code>int zahl = 10;
+if (zahl != 0)
+{
+    int ergebnis = zahl / zahl;
+}
+else
+{
+    int ergebnis = 0;
+}</code></pre>
+        </div>
+        <a href="#top">Zum Anfang</a>
+    </div>
+
+    <a name="top"></a>
     <h2>Tipps zur Fehlervermeidung</h2>
     <ul>
         <li>Schreibe klaren und gut strukturierten Code.</li>
@@ -115,11 +154,10 @@ else:
 
     <h2>Quellenangaben</h2>
     <ul>
-        <li>Python Documentation: <a href="https://docs.python.org/3/" target="_blank">https://docs.python.org/3/</a>
-        </li>
-        <li>Visual Studio Documentation: <a href="https://docs.microsoft.com/en-us/visualstudio/"
-                target="_blank">https://docs.microsoft.com/en-us/visualstudio/</a></li>
+        <li>C# Documentation: <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">https://docs.microsoft.com/en-us/dotnet/csharp/</a></li>
+        <li>Visual Studio Documentation: <a href="https://docs.microsoft.com/en-us/visualstudio/" target="_blank">https://docs.microsoft.com/en-us/visualstudio/</a></li>
     </ul>
+
 </body>
 
 </html>
